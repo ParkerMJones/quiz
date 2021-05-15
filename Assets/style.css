@@ -1,0 +1,30 @@
+#startBtn {
+    color: white;
+    background-color: purple;
+}
+
+#startPage {
+    padding: 40px;
+}
+
+#startPage h2 {
+    padding: 15px;
+}
+
+#startPage button {
+    padding: 15px;
+}
+
+#quizPage button {
+    color: white;
+    background-color: purple;
+    margin: 5px;
+}
+
+#highScorePage {
+    padding: 40px;
+}
+
+#highScorePage button {
+    background-color: purple;
+}

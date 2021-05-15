@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wrong Answers Only</title>
+    <link rel="stylesheet" href="Assets/style.css" />
+    <link rel="stylesheet" href=https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css />
+    
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar">
+            <a href = "score.html">View High Scores</a>
+            <ul>
+                <li class="align-right list-unstyled" id="timer"></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div class="container text-center" id="startPage">
+        <h2>Wrong Answers Only!</h2>
+        <p>Earn points for each INCORRECT answer.  Correct answers are penalized 5 seconds.</p>
+        <button type="button" class="btn btn-primary" id="startBtn">Start Quiz</button>
+    </div>
+
+    <div id="quizPage">
+        <h2 class="text-center" id="questionTitle"></h2>
+        <ul class="list-unstyled text-center">
+            <li>
+                <button type="button" class="btn btn-primary" id="aBtn"></button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-primary" id="bBtn"></button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-primary" id="cBtn"></button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container text-center" id="highScorePage">
+        <h2>High Scores!</h2>
+        <form>
+            <div class="form-group">
+              <label id="yourScore">Enter Your Name</label>
+              <input type="text" class="form-control" id="highScoreName" placeholder="Enter Name">
+              <small class="form-text text-muted">Save Your Name on the Leaderboard!</small>
+            </div>
+            <button type="submit" class="btn btn-primary" id="highScoreSubmit">Submit</button>
+        </form>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+<script src="Assets/logic.js"></script>
+</body>
+</html>
