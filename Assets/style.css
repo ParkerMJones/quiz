@@ -28,3 +28,13 @@
 #highScorePage button {
     background-color: purple;
 }
+
+#goBack {
+    color: white;
+    background-color: purple;
+}
+
+#clearHighScore {
+    color: white;
+    background-color: purple;
+}

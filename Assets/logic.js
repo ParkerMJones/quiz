@@ -55,6 +55,14 @@ var quizQuestions = [
     },
     ];
 
+    function init (){
+        const ul = document.getElementById('list');
+        arrayOfHighscores = JSON.parse(arrayOfHighscores);
+        var li = document.createElement('li');
+        li.textContent = `${i + 1}. ${highscoreLine.name} - ${highscoreLine.score}`;
+        ul.appendChild(li);
+    }
+
     document.getElementById("quizPage").style.display = "none";
     document.getElementById('highScorePage').style.display="none";
     timer.textContent = `Time: ${secondsLeft}`;
