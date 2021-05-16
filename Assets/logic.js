@@ -97,17 +97,11 @@ var quizQuestions = [
 // save user name and score to localStorage
      var saveScore = function() {
         var getName = highScoreName.value;
-    
         localStorage.setItem("getName", getName);
         localStorage.setItem("secondsLeft", secondsLeft);
-        var userScore = {
-            name: `${getName}`,
-            score: `${secondsLeft}`
         };
-        scoresList.push(userScore);
-        localStorage.setItem("saveScore", JSON.stringify(userScore));
-        };
-        
+
+                    
 // check if contents of selected button match "correct" element in quizQuestions[]
      aBtn.addEventListener('click', function() {
         if (quizQuestions[questionIndex].A !== quizQuestions[questionIndex].correct) {
