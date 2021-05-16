@@ -1,7 +1,6 @@
 var startBtn = document.querySelector("#startBtn");
 var startPage = document.querySelector("#startPage");
 
-
 var quizPage = document.querySelector("#quizPage");
 var questionTitle = document.querySelector("#questionTitle");
 var aBtn = document.getElementById("aBtn");
@@ -13,14 +12,6 @@ var secondsLeft = 30;
 let timer = document.getElementById("timer");
 var timerInterval;
 var timerRunning = true;
-
-var scoresList = document.getElementById('scoresList');
-var highScorePage = document.getElementById('highScorePage');
-var highScoreName = document.getElementById('highScoreName');
-var showScore = document.getElementById("showScore");
-var highScoreSubmit = document.getElementById("highScoreSubmit");
-
-var scoreItem = document.getElementById("scoreItem");
 
 
 // List of quiz questions
@@ -55,18 +46,12 @@ var quizQuestions = [
     },
     ];
 
-    function init (){
-        const ul = document.getElementById('list');
-        arrayOfHighscores = JSON.parse(arrayOfHighscores);
-        var li = document.createElement('li');
-        li.textContent = `${i + 1}. ${highscoreLine.name} - ${highscoreLine.score}`;
-        ul.appendChild(li);
-    }
-
-    document.getElementById("quizPage").style.display = "none";
-    document.getElementById('highScorePage').style.display="none";
+// default view: hide quiz and score, show intro
+    quizPage.style.display = "none";
+    highScorePage.style.display = "none";
     timer.textContent = `Time: ${secondsLeft}`;
 
+// start timer, show quiz page
     var startQuiz = function() {
         document.getElementById("startPage").style.display = "none";
         document.getElementById('highScorePage').style.display="none";
@@ -90,7 +75,7 @@ var quizQuestions = [
         }, 1000);
     }
 
-
+// assign buttons, if no more questions, stop clock
     var doQuiz = function() {
         var option = quizQuestions[questionIndex];
         if (questionIndex > 3) {
@@ -106,31 +91,24 @@ var quizQuestions = [
         bBtn.innerHTML = option.B;
         bBtn.setAttribute("answer", option.B);
         cBtn.innerHTML = option.C;
-        cBtn.setAttribute("answer", option.C);
-        
+        cBtn.setAttribute("answer", option.C);     
     }
      
+// save user name and score to localStorage
      var saveScore = function() {
         var getName = highScoreName.value;
     
-        localStorage.setItem("name", getName);
+        localStorage.setItem("getName", getName);
         localStorage.setItem("secondsLeft", secondsLeft);
-    
         var userScore = {
             name: `${getName}`,
             score: `${secondsLeft}`
         };
-    
         scoresList.push(userScore);
         localStorage.setItem("saveScore", JSON.stringify(userScore));
-        loadScores();
         };
-
-        var loadScores = function() {
-            scoreItem.textContent = highScoreName.value + " score: " + secondsLeft;
-        }
         
-
+// check if contents of selected button match "correct" element in quizQuestions[]
      aBtn.addEventListener('click', function() {
         if (quizQuestions[questionIndex].A !== quizQuestions[questionIndex].correct) {
              secondsLeft -= 5;
@@ -138,7 +116,6 @@ var quizQuestions = [
         questionIndex++;
         doQuiz();
      });
- 
      bBtn.addEventListener('click', function() {
          if (quizQuestions[questionIndex].B !== quizQuestions[questionIndex].correct) {
              secondsLeft -= 5;
@@ -146,7 +123,6 @@ var quizQuestions = [
         questionIndex++;
          doQuiz();
       });
- 
      cBtn.addEventListener('click', function() {
          if (quizQuestions[questionIndex].C !== quizQuestions[questionIndex].correct) {
              secondsLeft -= 5;
@@ -155,5 +131,6 @@ var quizQuestions = [
          doQuiz();
       });
 
+// start and submit
     startBtn.addEventListener('click', startQuiz);
     highScoreSubmit.addEventListener('click', saveScore);
