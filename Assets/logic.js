@@ -17,6 +17,9 @@ var timerRunning = true;
 var playerCounter = 1;
 var scoresArray = [];
 
+
+
+
 // List of quiz questions
 var quizQuestions = [
     {
@@ -113,6 +116,10 @@ var quizQuestions = [
         playerCounter++;
         };
 
+    var redirect = function() {
+        location.assign("./score.html");
+    }
+
                     
 // check if contents of selected button match "correct" element in quizQuestions[]
      aBtn.addEventListener('click', function() {
@@ -140,3 +147,5 @@ var quizQuestions = [
 // start and submit
     startBtn.addEventListener('click', startQuiz);
     highScoreSubmit.addEventListener('click', saveScore);
+    highScoreSubmit.addEventListener('click', redirect);
+    
