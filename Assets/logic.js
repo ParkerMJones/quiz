@@ -14,6 +14,9 @@ var timerInterval;
 var timerRunning = true;
 
 
+var playerCounter = 1;
+var scoresArray = [];
+
 // List of quiz questions
 var quizQuestions = [
     {
@@ -97,8 +100,17 @@ var quizQuestions = [
 // save user name and score to localStorage
      var saveScore = function() {
         var getName = highScoreName.value;
+        var scoreObject =
+            {
+                "id": playerCounter,
+                "name": getName,
+                "score": secondsLeft
+            }
+        scoresArray.push(scoreObject);
+        localStorage.setItem("scoresArray", JSON.stringify(scoresArray));
         localStorage.setItem("getName", getName);
         localStorage.setItem("secondsLeft", secondsLeft);
+        playerCounter++;
         };
 
                     

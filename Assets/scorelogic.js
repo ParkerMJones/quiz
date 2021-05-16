@@ -6,7 +6,9 @@ var clearHighScores = document.getElementById("clearHighScores");
 var scoreboard = function() {
 var secondsLeft = localStorage.getItem("secondsLeft");
 var getName = localStorage.getItem("getName");
-$('#scoresList').append('<li>'+ getName + " : " + secondsLeft +'</li>');
+// var scoresArray = localStorage.getItem("scoresArray");
+
+$('#scoresList').append('<li>' + getName + " : " + secondsLeft + '</li>');
 };
 
 clearHighScores.addEventListener("click", function() {
